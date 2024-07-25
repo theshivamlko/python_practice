@@ -1,30 +1,43 @@
 from turtle import Screen , Turtle
+from paddle_class import Paddle
+from ball import Ball
+import time
+
 # import sys
 # print(sys.path)
 
 screen=Screen()
 screen.bgcolor("black")
 screen.setup(width=800,height=600)
+screen.tracer(0) # turn off animation,set delay in update drawing
+
+rPaddle=Paddle((350,0))
+lPaddle=Paddle((-350,0))
+ball =Ball()
 
 
-paddle =Turtle()
-paddle.shape("square")
-paddle.color("white")
-paddle.shapesize(stretch_wid=5,stretch_len=1)
-paddle.penup()
-paddle.goto(350,0)
 
-
-def go_up():
-    newY=paddle.ycor()+20
-    paddle.goto(paddle.xcor(),newY)
-
-def go_down():
-    newY=paddle.ycor()-20
-    paddle.goto(paddle.xcor(),newY)
+    
+def esc():
+    screen.exitonclick()
 
 screen.listen()
-screen.onkey(go_up,"Up")
-screen.onkey(go_down,"Down")
+screen.onkey(rPaddle.go_up,"Up")
+screen.onkey(rPaddle.go_down,"Down")
+screen.onkey(lPaddle.go_up,"w")
+screen.onkey(lPaddle.go_down,"s")
+screen.onkey(esc,"Escape")
+
+gameOn=True
+
+while gameOn:
+    time.sleep(0.1)
+    screen.update()
+    ball.move()
+    
+    if ball.ycor() > 300 or ball.ycor() < -300:
+        ball.bounce()
+
+
 
 screen.exitonclick()
