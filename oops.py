@@ -3,19 +3,24 @@
 class Animal:
     def __init__(self):
         self.numEyes=2
+        print("Animal init")
     
     def breath(self):
-         print("Inhale Exhale")   
+         print("Animal Inhale Exhale")   
          
 
-class Fish:
+class Fish(Animal):
     def __init__(self,name):
+        super().__init__()
         self.fins=True
         self.name="Nemo"
-    
-    def swim(self):
-        print("Moving in water")
+        print("Fish init")
         
 
-fish=Fish();     
+    def swim(self):
+        print(f"Fish {self.name} Moving in water {self.fins}")
+        
+
+fish=Fish("Nemo");     
 fish.swim()   
+fish.breath()   
