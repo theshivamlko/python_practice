@@ -19,7 +19,11 @@ class Fish(Animal):
 
     def swim(self):
         print(f"Fish {self.name} Moving in water {self.fins}")
-        
+     
+    def breath(self):
+        super().breath()
+        print("Fish Breath")   
+   
 
 fish=Fish("Nemo");     
 fish.swim()   
