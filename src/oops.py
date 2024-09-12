@@ -27,6 +27,6 @@ class Fish(Animal):
         print("Fish Breath")   
    
 
-fish=Fish("Nemo");     
+fish=Fish("Nemo")
 fish.swim()   
 fish.breath()   
