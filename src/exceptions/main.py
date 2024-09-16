@@ -1,6 +1,4 @@
 
-
-
 try:
     str="Hello"
     print(str[5])
@@ -14,7 +12,4 @@ else: # if no exception in try block
 finally:
     print("Run anyway")
     raise KeyError("Intensional dev exception") # throw exception
-
-
-
 
